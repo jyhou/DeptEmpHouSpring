@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,11 +30,11 @@ public class DeptController {
 	}
 	
 	@RequestMapping(value="/addDept", method=RequestMethod.POST)
-	public String showAddDept(HttpServletRequest request, @RequestParam String deptName, @RequestParam String deptEmail) {
-//		model.addAttribute("allDept", deptService.loadDeptBasicInfo());
-		Department dept = new Department();
-		dept.setDeptEmail(deptEmail);
-		dept.setDeptName(deptName);
+	public String showAddDept(HttpServletRequest request, @ModelAttribute("dept") Department dept) {//This applies Spring's auto data binding
+//	public String showAddDept(HttpServletRequest request, @RequestParam String deptName, @RequestParam String deptEmail) {
+//		Department dept = new Department();
+//		dept.setDeptEmail(deptEmail);
+//		dept.setDeptName(deptName);		
 		
 		try {
 			deptService.saveDept(dept);

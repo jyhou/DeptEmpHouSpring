@@ -41,9 +41,7 @@ public class Department implements Serializable{
 	@OneToMany(mappedBy = "empDept", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Employee> deptEmpList;
 	
-	public Department(){
-		
-	}
+	public Department(){}
 	
 	public Department(Integer deptId, String deptName, String deptEmail, List<Employee> deptEmpList){
 		super();

@@ -39,7 +39,7 @@ border:1px solid black;
 					<tr>
 						<td>Department: </td>
 						<td>
-							<select name="department" required="required">
+							<select name="empDeptId" required="required">
 								<option value="">Select department</option>
 								<c:forEach items="${applicationScope.allDept}" var="dept">
 									<option value="${dept.getDeptId()}">${dept.getDeptName()}</option>
