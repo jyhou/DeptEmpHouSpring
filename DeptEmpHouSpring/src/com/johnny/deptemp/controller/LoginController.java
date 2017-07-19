@@ -24,17 +24,15 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String login(ModelMap model, HttpSession session, @RequestParam("userName") String userName, @RequestParam("password") String password) {
-//		if (userName == null && password == null) {
-//			model.addAttribute("isValidUser", false);
-//			return "index";
-//		}
+	public String login(ModelMap modelMap, HttpSession session, 
+			@RequestParam("userName") String userName, @RequestParam("password") String password) {
+
 		if (ValidateUser.validateUser(userName, password)) {
 			session.setAttribute("isValidUser", true);
 			session.setAttribute("currentUser", "Johnny");
 			return "manage";
 		} else {
-			model.addAttribute("isValidUser", false);
+			modelMap.addAttribute("isValidUser", false);
 			return "index";
 		}
 	}
@@ -46,7 +44,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/manage", method=RequestMethod.GET)
-	public String showManage(ModelMap model) {
+	public String showManage(ModelMap modelMap) {
 		return "manage";
 	}
 

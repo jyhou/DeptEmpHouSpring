@@ -25,13 +25,10 @@ public class DepartmentDAOImpl implements DepartmentDAO {
 	public List<Department> findAllDepartment() {
 		Query query = em.createQuery("SELECT OBJECT(d) FROM Department d JOIN FETCH d.deptEmpList");
 		return query.getResultList();
-//		return em.createNamedQuery("getAllDeptWithEmp").getResultList();
 	}
 
 	@Override
 	public List<Department> findBasicDeptInfo() {
-//		Query query = em.createQuery("SELECT OBJECT(d) FROM Department d");
-//		return query.getResultList();
 		return em.createNamedQuery("getAllDept").getResultList();
 	}
 

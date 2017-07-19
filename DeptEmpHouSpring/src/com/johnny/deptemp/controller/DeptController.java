@@ -30,11 +30,7 @@ public class DeptController {
 	}
 	
 	@RequestMapping(value="/addDept", method=RequestMethod.POST)
-	public String showAddDept(HttpServletRequest request, @ModelAttribute("dept") Department dept) {//This applies Spring's auto data binding
-//	public String showAddDept(HttpServletRequest request, @RequestParam String deptName, @RequestParam String deptEmail) {
-//		Department dept = new Department();
-//		dept.setDeptEmail(deptEmail);
-//		dept.setDeptName(deptName);		
+	public String showAddDept(HttpServletRequest request, @ModelAttribute("dept") Department dept) {//This applies Spring's auto data binding		
 		
 		try {
 			deptService.saveDept(dept);

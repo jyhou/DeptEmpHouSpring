@@ -82,10 +82,10 @@ public class Employee implements Serializable {
 		this.empId = empId;
 	}
 	
-	public Department getDept(){
+	public Department getEmpDept(){
 		return empDept;
 	}
-	public void setDept(Department empDept){
+	public void setEmpDept(Department empDept){
 		this.empDept = empDept;
 	}
 

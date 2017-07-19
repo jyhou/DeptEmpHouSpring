@@ -22,7 +22,7 @@ border:1px solid black;
 	<h2 style="text-align:center">Add new employee</h2>
 	<c:choose>
 		<c:when test="${isValidUser && not empty isValidUser}">
-			<form action="${pageContext.request.contextPath}/addEmp" method="post">
+			<form action="${pageContext.request.contextPath}/addEmp" method="post" >
 				<table align="center" style="text-align: left; fontsize: 120%; border: 1px solid black;">
 					<tr>
 						<td>First Name:</td>
@@ -39,7 +39,7 @@ border:1px solid black;
 					<tr>
 						<td>Department: </td>
 						<td>
-							<select name="empDeptId" required="required">
+							<select name="empDept.deptId" required="required">
 								<option value="">Select department</option>
 								<c:forEach items="${applicationScope.allDept}" var="dept">
 									<option value="${dept.getDeptId()}">${dept.getDeptName()}</option>
@@ -55,7 +55,7 @@ border:1px solid black;
 				</table>
 			</form>
 			<br><br>
-			<button onclick="location.href='${pageContext.request.contextPath}/logout'" type="button">Log out</button>
+			<button onclick="location.href='logout'" type="button">Log out</button>
 		</c:when>
 		<c:otherwise>
 			<p style="color: red">Please log in first! <a href="${pageContext.request.contextPath}">Log in here!</a>
@@ -77,7 +77,7 @@ border:1px solid black;
 					<td>${emp.getFirstName()}</td>
 					<td>${emp.getLastName()}</td>
 					<td>${emp.getAge()}</td>
-					<td>${emp.getDept().getDeptName()}</td>
+					<td>${emp.getEmpDept().getDeptName()}</td>
 				</tr>
 			</c:forEach>
 		</table>

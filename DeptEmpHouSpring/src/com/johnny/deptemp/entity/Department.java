@@ -20,8 +20,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "department")
 @NamedQueries({
-@NamedQuery(name = "getAllDept", query = "SELECT OBJECT(d) from Department d"),
-//@NamedQuery(name = "getAllDeptWithEmp", query = "SELECT OBJECT(d) from Department d JOIN FETCH d.employeeList")
+@NamedQuery(name = "getAllDept", query = "SELECT OBJECT(d) from Department d")
 })
 public class Department implements Serializable{
 	

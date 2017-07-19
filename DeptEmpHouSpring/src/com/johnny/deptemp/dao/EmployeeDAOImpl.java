@@ -29,8 +29,6 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	@Transactional
 	public List<Employee> findAllEmployees() {
 		
-//		Query query = em.createQuery("SELECT OBJECT(e) FROM Employee e");
-//		return query.getResultList();
 		return em.createNamedQuery("getAllEmp").getResultList();
 	}
 	

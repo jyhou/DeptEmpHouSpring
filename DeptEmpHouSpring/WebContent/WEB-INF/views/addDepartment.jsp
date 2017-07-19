@@ -35,17 +35,6 @@ border:1px solid black;
 						<td><input type="text" name="deptEmail"
 							style="fontsize: 120%;" /></td>
 					</tr>
-					<!-- <tr>
-						<td>Employee:</td>
-						<td><c:forEach items="${empList}" var="emp">
-
-								<p>
-									<input type="checkbox" name="deptEmpIdList" value="${emp.getId()}" />${emp.getFirstName()}
-									${emp.getLastName()}
-								</p>
-
-							</c:forEach></td>
-					<tr> -->
 					<tr>
 						<td align="center"><input type="submit" value="submit" /></td>
 						<td align="center"><button
@@ -74,7 +63,6 @@ border:1px solid black;
 			<td>Dept ID: </td>
 			<td>Dept Name:</td>
 			<td>Dept Email:</td>
-			<!--  <td>Dept Employees:</td> -->
 			</tr>
 			<c:forEach items="${applicationScope.allDept}" var="dept">
 				<tr>

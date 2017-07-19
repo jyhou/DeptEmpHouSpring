@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,14 +24,6 @@ public class EmpController {
 	@Autowired
 	DepartmentService deptService;
 	
-//	@ModelAttribute("initEmp")
-//	public Employee initEmp(@ModelAttribute("emp") Employee emp, @RequestParam int empDeptId) {
-//		Department empDept = new Department();
-//		empDept.setDeptId(deptEmpId);
-//		emp.setDept(empDept);
-//		return emp;
-//	}
-	
 	@RequestMapping("/showAddEmp")
 	public String showAddEmp(HttpServletRequest request) {
 		request.getServletContext().setAttribute("allEmp", empService.loadEmpBasicInfo());
@@ -39,17 +32,8 @@ public class EmpController {
 	}
 	
 	@RequestMapping("/addEmp")
-//	public String addEmp(HttpServletRequest request, ModelMap model, 
-//			@RequestParam String firstName, @RequestParam String lastName, @RequestParam int age, @RequestParam int department ) {
-	public String addEmp(HttpServletRequest request, ModelMap model, @ModelAttribute("emp") Employee emp, @RequestParam int empDeptId) {	
-//		Employee emp = new Employee();
-//		emp.setFirstName(firstName);
-//		emp.setLastName(lastName);
-//		emp.setAge(age);
-//		emp.setDept(empService.findDeptById(department));
-		Department empDept = new Department();
-		empDept.setDeptId(empDeptId);
-		emp.setDept(empDept);
+	public String addEmp(HttpServletRequest request, ModelMap modelMap, @ModelAttribute("emp") Employee emp) {	
+
 		empService.saveEmp(emp);
 		empService.loadEmpBasicInfo();
 		request.getServletContext().setAttribute("allEmp", empService.loadEmpBasicInfo());
