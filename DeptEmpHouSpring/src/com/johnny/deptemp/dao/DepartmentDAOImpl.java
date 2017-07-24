@@ -21,12 +21,14 @@ public class DepartmentDAOImpl implements DepartmentDAO {
 		em.persist(dept);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Department> findAllDepartment() {
 		Query query = em.createQuery("SELECT OBJECT(d) FROM Department d JOIN FETCH d.deptEmpList");
 		return query.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Department> findBasicDeptInfo() {
 		return em.createNamedQuery("getAllDept").getResultList();
